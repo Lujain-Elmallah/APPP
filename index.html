@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Website 1 - Slideshows</title>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      height: 100vh;
+    }
+
+    .slideshow {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #000;
+      cursor: pointer;
+    }
+
+    .slideshow img {
+      max-width: 100%;
+      max-height: 100%;
+    }
+  </style>
+</head>
+<body>
+
+<script>
+  const slideshows = [1, 2, 3];
+
+  slideshows.forEach((slideshowIndex) => {
+    const slideshow = document.createElement('div');
+    slideshow.classList.add('slideshow');
+
+    let currentImageIndex = 1;
+    const totalImages = 3; // Assuming 3 images for each slideshow
+
+    slideshow.addEventListener('click', () => {
+      currentImageIndex = (currentImageIndex % totalImages) + 1;
+      const imagePath = `IMG/img${slideshowIndex}${currentImageIndex}.png`;
+      slideshow.innerHTML = `<img src="${imagePath}" alt="Slideshow ${slideshowIndex}">`;
+    });
+
+    document.body.appendChild(slideshow);
+  });
+</script>
+
+</body>
+</html>
