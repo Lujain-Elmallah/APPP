@@ -44,7 +44,7 @@
 
     slideshow.addEventListener('click', () => {
       currentImageIndex = (currentImageIndex % totalImages) + 1;
-      const imagePath = `IMG/img${slideshowIndex}${currentImageIndex}.png`;
+      const imagePath = `img${slideshowIndex}${currentImageIndex}.png`;
       slideshow.innerHTML = `<img src="${imagePath}" alt="Slideshow ${slideshowIndex}">`;
     });
 
@@ -54,3 +54,4 @@
 
 </body>
 </html>
+
